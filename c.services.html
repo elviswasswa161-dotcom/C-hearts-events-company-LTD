@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#efb853">
     <title>C HEARTS EVENTS Co. | Services</title>
     <link rel="icon" type="image/x-icon" href="C HEART LOGO.jpeg">
+    <link rel="manifest" href="manifest.json">
     <style>
         body{
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-image: url(BG.jpeg);
+            -webkit-tap-highlight-color: transparent;
         }
         header{
             background-color: rgb(10, 10, 11);
@@ -29,13 +32,32 @@
             padding: 14px 16px;
              text-decoration: wavy;
         }
-          nav a:hover {
+          nav a:hover, nav a.active {
       background-color: #54023b;
     }
     @media screen and (max-width: 768px) {
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: rgb(42, 42, 44);
+        }
         nav a {
             float: none;
+            flex: 1;
             text-align: center;
+            padding: 10px;
+        }
+        .gallery img {
+            max-width: 90vw;
+        }
+        .services-container {
+            flex-direction: column;
+        }
+        .company-animation {
+            font-size: 2em;
+        }
+        .company-animation .floating-icons {
+            display: none;
         }
     }
     @media screen and (max-width: 480px) {
@@ -47,6 +69,18 @@
         }
         .content {
             padding: 15px;
+        }
+        .content h1 {
+            font-size: 1.8em;
+        }
+        .content h2 {
+            font-size: 1.2em;
+        }
+        .content li {
+            font-size: 0.9em;
+        }
+        .company-animation {
+            font-size: 1.5em;
         }
         footer {
             padding: 10px;
@@ -64,6 +98,7 @@
       margin: 10px;
       border-radius: 10px;
       transition: transform 0.3s ease;
+      animation: float 1s ease-in-out infinite;
     }
     .gallery img:hover {
       transform: scale(1.05);
@@ -74,11 +109,147 @@
        color: #f6f3f9;
        background-color: #9c7303;
     }
+    .services-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .services-list {
+      flex: 1;
+    }
+    .company-animation {
+      flex: 1;
+      text-align: center;
+      font-size: 3em;
+      font-weight: bold;
+      position: relative;
+    }
+    .company-animation span {
+      display: inline-block;
+      animation: letterBounce 2s ease-in-out infinite;
+      color: #efb853;
+      text-shadow: 0 0 10px #efb853;
+    }
+    .company-animation span:nth-child(n) {
+      animation-delay: calc(n * 0.05s);
+    }
+    .floating-icons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .icon {
+      position: absolute;
+      font-size: 1.5em;
+      opacity: 0.7;
+      animation: floatAround 6s infinite linear;
+    }
+    .icon:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+    .icon:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+    .icon:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 2s; }
+    .icon:nth-child(4) { bottom: 10%; right: 10%; animation-delay: 3s; }
+    .icon:nth-child(5) { top: 50%; left: 5%; animation-delay: 4s; }
+    .icon:nth-child(6) { top: 30%; right: 5%; animation-delay: 5s; }
+    .content ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    .content h2 {
+      font-size: 1.4em;
+      margin-top: 30px;
+    }
+    .content li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 40px;
+      opacity: 1;
+      animation: wave 5s infinite;
+      transition: color 0.3s ease;
+    }
+    .content li:hover {
+      color: #efb853;
+    }
+    .content li:nth-child(1) { animation-delay: 0s; }
+    .content li:nth-child(2) { animation-delay: 0.1s; }
+    .content li:nth-child(3) { animation-delay: 0.2s; }
+    .content li:nth-child(4) { animation-delay: 0.3s; }
+    .content li:nth-child(5) { animation-delay: 0.4s; }
+    .content li:nth-child(6) { animation-delay: 0.5s; }
+    .content li:nth-child(7) { animation-delay: 0.6s; }
+    .content li:nth-child(8) { animation-delay: 0.7s; }
+    .content li:nth-child(9) { animation-delay: 0.8s; }
+    .content li:nth-child(10) { animation-delay: 0.9s; }
+    .content li:nth-child(11) { animation-delay: 1.0s; }
+    .content li:nth-child(12) { animation-delay: 1.1s; }
+    .content li:nth-child(13) { animation-delay: 1.2s; }
+    .content li::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1em;
+      transition: transform 0.3s ease;
+    }
+    .content li:hover::before {
+      transform: scale(1.2);
+    }
+    .content li:nth-child(1)::before { content: "💒"; }
+    .content li:nth-child(2)::before { content: "🏢"; }
+    .content li:nth-child(3)::before { content: "🤝"; }
+    .content li:nth-child(4)::before { content: "🎤"; }
+    .content li:nth-child(5)::before { content: "🚀"; }
+    .content li:nth-child(6)::before { content: "🎂"; }
+    .content li:nth-child(7)::before { content: "🔒"; }
+    .content li:nth-child(8)::before { content: "👰"; }
+    .content li:nth-child(9)::before { content: "🤵"; }
+    .content li:nth-child(10)::before { content: "🎓"; }
+    .content li:nth-child(11)::before { content: "🛁"; }
+    .content li:nth-child(12)::before { content: "💍"; }
+    .content li:nth-child(13)::before { content: "🎉"; }
     footer {
       background-color: #000;
       color: #c69210;
       text-align: center;
       padding: 15px;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    @keyframes letterBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-5px) rotate(1deg); }
+      50% { transform: translateY(-10px) rotate(0deg); }
+      75% { transform: translateY(-5px) rotate(-1deg); }
+    }
+    @keyframes floatAround {
+      0% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-20px) rotate(90deg); }
+      50% { transform: translateY(0) rotate(180deg); }
+      75% { transform: translateY(20px) rotate(270deg); }
+      100% { transform: translateY(0) rotate(360deg); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes wave {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
     }
     </style>
 
@@ -91,10 +262,11 @@
     </header>
 
     <nav>
-    <a href="index.html">HOME</a>
-    <a href="About us.html">ABOUT US</a>
-    <a href="c.contact us.html">CONTACT US</a>    
-    <a href="c.services.html">SERVICES</a>
+    <a href="index.html">🏠 HOME</a>
+    <a href="About us.html">ℹ️ ABOUT</a>
+    <a href="c.contact us.html">📞 CONTACT</a>    
+    <a href="c.services.html" class="active">🛠️ SERVICES</a>
+    <a href="events.html">🎉 EVENTS</a>
     </nav>
     
   <div class="gallery">
@@ -105,12 +277,51 @@
     <div class="content">
 <h1>Our Services</h1>
 <p>We offer a wide range of event services including planning, coordination, and execution for weddings, corporate events, birthdays, and more.</p>
+<h2>Services We Offer</h2>
+<div class="services-container">
+<div class="services-list">
+<ul>
+    <li>Wedding and Introduction Ceremonies Planning</li>
+    <li>Corporate Events</li>
+    <li>Team Building Activities</li>
+    <li>Conferences</li>
+    <li>Product Launches</li>
+    <li>Birthdays</li>
+    <li>Private Events</li>
+    <li>Wedding Ceremonies</li>
+    <li>Introduction Ceremonies</li>
+    <li>Graduation Parties</li>
+    <li>Bridal and Baby Showers</li>
+    <li>Anniversaries</li>
+    <li>All sorts of events that need to be colourful</li>
+</ul>
 <p>Contact us to learn more about our services.</p>
+</div>
+<div class="company-animation">
+<span>C</span><span> </span><span>H</span><span>E</span><span>A</span><span>R</span><span>T</span><span>S</span><span> </span><span>E</span><span>V</span><span>E</span><span>N</span><span>T</span><span>S</span><span> </span><span>C</span><span>O</span><span>M</span><span>P</span><span>A</span><span>N</span><span>Y</span><span> </span><span>L</span><span>I</span><span>M</span><span>I</span><span>T</span><span>E</span><span>D</span>
+<div class="floating-icons">
+<span class="icon">🎉</span>
+<span class="icon">💒</span>
+<span class="icon">🎂</span>
+<span class="icon">🎓</span>
+<span class="icon">🏢</span>
+<span class="icon">🤝</span>
+</div>
+</div>
+</div>
     </div>
 
 <footer>
     <p>&copy;2026 C HEARTS EVENTS COMPANY LTD.</p>
 </footer>    
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
 
 </body>
 </html>

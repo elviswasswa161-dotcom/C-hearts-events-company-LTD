@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#efb853">
     <title>C HEARTS EVENTS Co. | home</title>
     <link rel="icon" type="image/x-icon" href="C HEART LOGO.jpeg">
+    <link rel="manifest" href="manifest.json">
     <style>
         body{
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-image: url(BG.jpeg);
+            -webkit-tap-highlight-color: transparent;
         }
         header{
             background-color: rgb(10, 10, 11);
@@ -29,13 +32,23 @@
             padding: 14px 16px;
              text-decoration: wavy;
         }
-          nav a:hover {
+          nav a:hover, nav a.active {
       background-color: #54023b;
     }
     @media screen and (max-width: 768px) {
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: rgb(42, 42, 44);
+        }
         nav a {
             float: none;
+            flex: 1;
             text-align: center;
+            padding: 10px;
+        }
+        .gallery img {
+            max-width: 90vw;
         }
     }
     @media screen and (max-width: 480px) {
@@ -47,6 +60,18 @@
         }
         .content {
             padding: 15px;
+        }
+        .content h1 {
+            font-size: 1.8em;
+        }
+        .content h2 {
+            font-size: 1.2em;
+        }
+        .content li {
+            font-size: 0.9em;
+        }
+        .content ul {
+            max-width: 100%;
         }
         footer {
             padding: 10px;
@@ -64,6 +89,7 @@
       margin: 10px;
       border-radius: 10px;
       transition: transform 0.3s ease;
+      animation: float 1s ease-in-out infinite;
     }
     .gallery img:hover {
       transform: scale(1.05);
@@ -74,11 +100,31 @@
        color: #f6f3f9;
        background-color: #9c7303;
     }
+    .content ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    .content h2 {
+      font-size: 1.4em;
+      margin-top: 30px;
+    }
+    .content li {
+      margin-bottom: 15px;
+      line-height: 1.6;
+      font-size: 1.2em;
+    }
     footer {
       background-color: #000;
       color: #c69210;
       text-align: center;
       padding: 15px;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
     </style>
 
@@ -91,10 +137,11 @@
     </header>
 
     <nav>
-    <a href="index.html">HOME</a>
-    <a href="About us.html">ABOUT US</a>
-    <a href="c.contact us.html">CONTACT US</a>    
-    <a href="c.services.html">SERVICES</a>
+    <a href="index.html" class="active">🏠 HOME</a>
+    <a href="About us.html">ℹ️ ABOUT</a>
+    <a href="c.contact us.html">📞 CONTACT</a>    
+    <a href="c.services.html">🛠️ SERVICES</a>
+    <a href="events.html">🎉 EVENTS</a>
     </nav>
     
   <div class="gallery">
@@ -106,11 +153,28 @@
 <h1>Welcome to C HEARTS EVENTS C.O LTD WEBSITE</h1>
 <P>We are ready to meet your Event services.</P>
 <A href="About us.html">Learn about us</A>
+
+<h2>Our Core Values</h2>
+<ul>
+    <li><strong>Integrity:</strong> We uphold honesty, transparency, and ethical practices in every client interaction, contract, and service delivery to build lasting trust.</li>
+    <li><strong>Heartfelt Service:</strong> We prioritize client joy and needs with compassionate, personalized planning that creates meaningful, stress-free experiences.</li>
+    <li><strong>Excellence:</strong> We are committed to delivering flawless execution through creativity, attention to detail, and continuous improvement in all events.</li>
+    <li><strong>Community Impact:</strong> We foster unity and cultural celebration in Uganda by supporting local traditions, safety, and giving back to ministries and neighborhoods.</li>
+    <li><strong>Reliability:</strong> We ensure on-time, dependable performance with innovative solutions tailored to African events like weddings, give aways, graduations, anniversaries, dedications, etc.</li>
+</ul>
     </div>
 
 <footer>
     <p>&copy;2026 C HEARTS EVENTS COMPANY LTD.</p>
 </footer>    
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
 
 </body>
 </html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#efb853">
+    <title>C HEARTS EVENTS Co. | Events</title>
+    <link rel="icon" type="image/x-icon" href="C HEART LOGO.jpeg">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(BG.jpeg);
+            -webkit-tap-highlight-color: transparent;
+        }
+        header{
+            background-color: rgb(10, 10, 11);
+            color: rgb(241, 183, 59);
+            text-align: center;
+            padding: 30px;
+        }
+        nav{
+            background-color: rgb(42, 42, 44);
+            overflow: auto;
+        }
+        nav a{
+            float: inline-end;
+            display:block;
+            color:#efb853;
+            padding: 14px 16px;
+             text-decoration: wavy;
+        }
+          nav a:hover, nav a.active {
+      background-color: #54023b;
+    }
+    @media screen and (max-width: 768px) {
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: rgb(42, 42, 44);
+        }
+        nav a {
+            float: none;
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+        }
+        .gallery img {
+            max-width: 90vw;
+        }
+        .videos video {
+            max-width: 90vw;
+        }
+        .image-controls {
+            opacity: 1; /* Always visible on mobile */
+        }
+    }
+    @media screen and (max-width: 480px) {
+        header {
+            padding: 20px;
+        }
+        .gallery {
+            padding: 10px;
+        }
+        .content {
+            padding: 15px;
+        }
+        .content h1 {
+            font-size: 1.8em;
+        }
+        footer {
+            padding: 10px;
+        }
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .image-container {
+      position: relative;
+      display: inline-block;
+      margin: 10px;
+    }
+    .gallery img {
+      width: 90%;
+      max-width: 300px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      animation: float 1s ease-in-out infinite;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .image-controls {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      padding: 5px 10px;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .image-container:hover .image-controls {
+      opacity: 1;
+    }
+    .fullscreen-btn, .download-link {
+      color: #efb853;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+    .fullscreen-btn:hover, .download-link:hover {
+      color: #54023b;
+    }
+    .videos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+    }
+    .videos video {
+      width: 90%;
+      max-width: 500px;
+      margin: 10px;
+      border-radius: 10px;
+    }
+    .video-controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .fullscreen-btn, .download-link {
+      color: #efb853;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .fullscreen-btn:hover, .download-link:hover {
+      color: #54023b;
+    }
+    .content {
+      padding: 20px;
+      text-align: center;
+       color: #f6f3f9;
+       background-color: #9c7303;
+    }
+    footer {
+      background-color: #000;
+      color: #c69210;
+      text-align: center;
+      padding: 15px;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <h1>C HEARTS EVENTS COMPANY LTD.</h1>
+        <marquee direction="right"><P>"We create, You celebrate."</P></marquee>
+    </header>
+
+    <nav>
+    <a href="index.html">🏠 HOME</a>
+    <a href="About us.html">ℹ️ ABOUT</a>
+    <a href="c.contact us.html">📞 CONTACT</a>    
+    <a href="c.services.html">🛠️ SERVICES</a>
+    <a href="events.html" class="active">🎉 EVENTS</a>
+    </nav>
+    
+    <div class="content">
+        <h1>Our Events Gallery</h1>
+        <p>Check out some of our past events!</p>
+    </div>
+
+    <div class="gallery">
+        <!-- Images will be added here by JavaScript -->
+    </div>
+
+    <script>
+        const imageFiles = [
+            "WhatsApp Image 2026-01-07 at 9.16.34 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.35 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.36 PM (1).jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.36 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.37 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.38 PM (1).jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.38 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.39 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.40 PM (1).jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.40 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.41 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.42 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.43 PM (1).jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.43 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.44 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.45 PM (1).jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.45 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.46 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.47 PM (1).jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.47 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.48 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.49 PM (1).jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.49 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.50 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.51 PM (1).jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.51 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.52 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.53 PM (1).jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.53 PM.jpeg",
+            "WhatsApp Image 2026-01-07 at 9.16.54 PM.jpeg",
+        
+        ];
+
+        const gallery = document.querySelector('.gallery');
+        imageFiles.forEach((file, index) => {
+            const container = document.createElement('div');
+            container.className = 'image-container';
+
+            const img = document.createElement('img');
+            img.src = `IMAGES/${file}`;
+            img.alt = 'Event Image';
+            img.onclick = () => toggleFullscreen(img);
+
+            const controls = document.createElement('div');
+            controls.className = 'image-controls';
+
+            const fullscreenBtn = document.createElement('span');
+            fullscreenBtn.className = 'fullscreen-btn';
+            fullscreenBtn.textContent = '🔍';
+            fullscreenBtn.onclick = () => toggleFullscreen(img);
+
+            const downloadLink = document.createElement('a');
+            downloadLink.className = 'download-link';
+            downloadLink.href = `IMAGES/${file}`;
+            downloadLink.download = file;
+            downloadLink.textContent = '📥';
+
+            controls.appendChild(fullscreenBtn);
+            controls.appendChild(downloadLink);
+
+            container.appendChild(img);
+            container.appendChild(controls);
+
+            gallery.appendChild(container);
+        });
+    </script>
+
+    <div class="videos">
+        <div class="video-container">
+            <video id="video1" controls>
+                <source src="VIDEOS/1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-controls">
+                <span class="fullscreen-btn" onclick="toggleFullscreen(document.getElementById('video1'))">🔍 Fullscreen</span>
+                <a href="VIDEOS/1.mp4" download class="download-link">📥 Download</a>
+            </div>
+        </div>
+        <div class="video-container">
+            <video id="video2" controls>
+                <source src="VIDEOS/2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-controls">
+                <span class="fullscreen-btn" onclick="toggleFullscreen(document.getElementById('video2'))">🔍 Fullscreen</span>
+                <a href="VIDEOS/2.mp4" download class="download-link">📥 Download</a>
+            </div>
+        </div>
+    </div>
+
+<footer>
+    <p>&copy;2026 C HEARTS EVENTS COMPANY LTD.</p>
+</footer>    
+
+<script>
+function toggleFullscreen(element) {
+    if (!document.fullscreenElement) {
+        element.requestFullscreen().catch(err => {
+            console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
+
+</body>
+</html>

@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#efb853">
     <title>C HEARTS EVENTS Co. | About Us</title>
     <link rel="icon" type="image/x-icon" href="C HEART LOGO.jpeg">
+    <link rel="manifest" href="manifest.json">
     <style>
         body{
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-image: url(BG.jpeg);
+            -webkit-tap-highlight-color: transparent;
         }
         header{
             background-color: rgb(10, 10, 11);
@@ -29,13 +32,23 @@
             padding: 14px 16px;
              text-decoration: wavy;
         }
-          nav a:hover {
+          nav a:hover, nav a.active {
       background-color: #54023b;
     }
     @media screen and (max-width: 768px) {
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: rgb(42, 42, 44);
+        }
         nav a {
             float: none;
+            flex: 1;
             text-align: center;
+            padding: 10px;
+        }
+        .gallery img {
+            max-width: 90vw;
         }
     }
     @media screen and (max-width: 480px) {
@@ -47,6 +60,13 @@
         }
         .content {
             padding: 15px;
+            margin: 10px;
+        }
+        .content h1 {
+            font-size: 1.8em;
+        }
+        .content h2 {
+            font-size: 1.2em;
         }
         footer {
             padding: 10px;
@@ -64,6 +84,7 @@
       margin: 10px;
       border-radius: 10px;
       transition: transform 0.3s ease;
+      animation: float 1s ease-in-out infinite;
     }
     .gallery img:hover {
       transform: scale(1.05);
@@ -73,12 +94,35 @@
       text-align: center;
        color: #f6f3f9;
        background-color: #9c7303;
+       border-radius: 10px;
+       margin: 20px;
+       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .content h2 {
+        font-size: 1.5em;
+        color: #fff;
+        margin-top: 30px;
+    }
+    .content p {
+        line-height: 1.6;
+    }
+    .content ul {
+        display: inline-block;
+        text-align: left;
+        margin: 20px 0;
+    }
+    .content li {
+        margin: 5px 0;
     }
     footer {
       background-color: #000;
       color: #c69210;
       text-align: center;
       padding: 15px;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
     </style>
 
@@ -91,10 +135,11 @@
     </header>
 
     <nav>
-    <a href="index.html">HOME</a>
-    <a href="About us.html">ABOUT US</a>
-    <a href="c.contact us.html">CONTACT US</a>    
-    <a href="c.services.html">SERVICES</a>
+    <a href="index.html">🏠 HOME</a>
+    <a href="About us.html" class="active">ℹ️ ABOUT</a>
+    <a href="c.contact us.html">📞 CONTACT</a>    
+    <a href="c.services.html">🛠️ SERVICES</a>
+    <a href="events.html">🎉 EVENTS</a>
     </nav>
     
   <div class="gallery">
@@ -104,13 +149,41 @@
 
     <div class="content">
 <h1>About Us</h1>
-<p>C HEARTS EVENTS COMPANY LTD. is dedicated to making your events unforgettable. With years of experience in event planning and coordination, we specialize in creating magical moments for weddings, corporate gatherings, birthdays, and more.</p>
-<p>Our team is passionate about bringing your vision to life. Let us handle the details so you can enjoy the celebration.</p>
+<p>At C-Hearts Events, we are dedicated to providing comprehensive events that relieve clients of the burden of event management and planning. Our clients go stress-free and create their lifelong memories. With a team of experienced professionals, we offer personalised solutions to help you navigate the complexities of any ceremonial landscape with confidence so hire us to create and you celebrate.</p>
+
+
+<h2>Our Mission</h2>
+<p>To deliver exceptional event experiences that exceed our clients' expectations, making every occasion memorable and stress-free through innovative planning and flawless execution.</p>
+
+<h2>Our Vision</h2>
+<p>To be the leading event planning company, recognized for innovation, reliability, and creativity in crafting unforgettable events that bring people together.</p>
+
+<h2>Our Team</h2>
+<p>Our diverse team of event planners, coordinators, designers, and technicians brings years of combined experience and a passion for perfection to every project. We are committed to continuous learning and staying ahead of industry trends.</p>
+
+<h2>Why Choose Us?</h2>
+<p>With many successful events planned, we pride ourselves on attention to detail, personalized service, competitive pricing, and a proven track record of client satisfaction. Our commitment to excellence ensures that your event is handled with the utmost care.</p>
+
+<h2>Key Statistics</h2>
+<ul>
+    <li>Events Planned: more than enough</li>
+    <li>Client Satisfaction Rate: 98%</li>
+    <li>Team Members: experts </li>
+    <li>Services Offered: Weddings, Corporate Events, Birthdays, and More</li>
+</ul>
     </div>
 
 <footer>
     <p>&copy;2026 C HEARTS EVENTS COMPANY LTD.</p>
 </footer>    
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
 
 </body>
 </html>

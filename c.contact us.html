@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#efb853">
     <title>C HEARTS EVENTS Co. | Contact Us</title>
     <link rel="icon" type="image/x-icon" href="C HEART LOGO.jpeg">
+    <link rel="manifest" href="manifest.json">
     <style>
         body{
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-image: url(BG.jpeg);
+            -webkit-tap-highlight-color: transparent;
         }
         header{
             background-color: rgb(10, 10, 11);
@@ -29,13 +32,23 @@
             padding: 14px 16px;
              text-decoration: wavy;
         }
-          nav a:hover {
+          nav a:hover, nav a.active {
       background-color: #54023b;
     }
     @media screen and (max-width: 768px) {
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: rgb(42, 42, 44);
+        }
         nav a {
             float: none;
+            flex: 1;
             text-align: center;
+            padding: 10px;
+        }
+        .gallery img {
+            max-width: 90vw;
         }
     }
     @media screen and (max-width: 480px) {
@@ -47,6 +60,9 @@
         }
         .content {
             padding: 15px;
+        }
+        .content h1 {
+            font-size: 1.8em;
         }
         footer {
             padding: 10px;
@@ -64,6 +80,7 @@
       margin: 10px;
       border-radius: 10px;
       transition: transform 0.3s ease;
+      animation: float 1s ease-in-out infinite;
     }
     .gallery img:hover {
       transform: scale(1.05);
@@ -80,6 +97,10 @@
       text-align: center;
       padding: 15px;
     }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
     </style>
 
 </head>
@@ -91,10 +112,11 @@
     </header>
 
     <nav>
-    <a href="index.html">HOME</a>
-    <a href="About us.html">ABOUT US</a>
-    <a href="c.contact us.html">CONTACT US</a>    
-    <a href="c.services.html">SERVICES</a>
+    <a href="index.html">🏠 HOME</a>
+    <a href="About us.html">ℹ️ ABOUT</a>
+    <a href="c.contact us.html" class="active">📞 CONTACT</a>    
+    <a href="c.services.html">🛠️ SERVICES</a>
+    <a href="events.html">🎉 EVENTS</a>
     </nav>
     
   <div class="gallery">
@@ -106,12 +128,23 @@
 <h1>Contact Us</h1>
 <p>Get in touch with us for all your event planning needs.</p>
 <p><a href="https://wa.me/256701623981" style="color: #efb853;">Contact us on WhatsApp: +256 701 623981</a></p>
+<p>Call Mrs Carol Kabango: <a href="tel:0773278682" style="color: #efb853;">0773278682</a></p>
+<p>Office of C HEARTS EVENTS COMPANY LIMITED: <a href="tel:0200929568" style="color: #efb853;">0200929568</a></p>
+<p>Email: <a href="mailto:carolochiengkabango@gmail.com" style="color: #efb853;">carolochiengkabango@gmail.com</a></p>
 <p>We are here to help you access our services.</p>
     </div>
 
 <footer>
     <p>&copy;2026 C HEARTS EVENTS COMPANY LTD.</p>
 </footer>    
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
 
 </body>
 </html>
